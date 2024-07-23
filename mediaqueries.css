@@ -1,0 +1,42 @@
+@media screen and (max-width: 1200px) {
+    body{
+        margin: 0 6rem;
+    }
+}
+
+@media screen and (max-width: 887px) {  
+    .bottom-options{
+        border-top: 1px solid #55AD9B;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    body{
+        margin: 0 3rem;
+    }
+
+    .add-new-account {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    .add-new-account .add-acc-header {
+        font-size: 1rem;
+    }
+    .add-new-account .input-field input {
+        font-size: 0.9rem;
+    }
+    .add-new-account .addBtn {
+        padding: 8px;
+    }
+
+    .dim-effect{
+        height: 200%;
+        
+    }
+}
+

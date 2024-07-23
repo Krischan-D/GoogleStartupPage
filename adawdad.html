@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Image Upload and Resize</title>
+    <style>
+        #canvasContainer {
+            display: none;
+            margin-top: 10px;
+        }
+        #profileImageContainer img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <form id="uploadForm">
+        <input type="file" id="profileImageInput" accept="image/*">
+        <div id="canvasContainer">
+            <canvas id="resizeCanvas"></canvas>
+            <label for="resizeRange">Resize:</label>
+            <input type="range" id="resizeRange" min="10" max="100" value="100">
+        </div>
+        <button type="button" id="saveImageButton">Save Image</button>
+    </form>
+    <div id="profileImageContainer">
+        <img id="profileImage" alt="Profile Image" src="">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const profileImageInput = document.getElementById('profileImageInput');
+            const resizeCanvas = document.getElementById('resizeCanvas');
+            const resizeRange = document.getElementById('resizeRange');
+            const saveImageButton = document.getElementById('saveImageButton');
+            const profileImage = document.getElementById('profileImage');
+            const canvasContainer = document.getElementById('canvasContainer');
+            const ctx = resizeCanvas.getContext('2d');
+            let originalImage = new Image();
+
+            // Load the saved image from localStorage on page load
+            const savedImage = localStorage.getItem('profileImage');
+            if (savedImage) {
+                profileImage.src = savedImage;
+            }
+
+            // Handle file input change
+            profileImageInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onloadend = function() {
+                        originalImage.src = reader.result;
+                        originalImage.onload = function() {
+                            resizeCanvas.width = originalImage.width;
+                            resizeCanvas.height = originalImage.height;
+                            ctx.drawImage(originalImage, 0, 0);
+                            canvasContainer.style.display = 'block';
+                        };
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Handle resize slider change
+            resizeRange.addEventListener('input', function() {
+                const scaleFactor = this.value / 100;
+                resizeCanvas.width = originalImage.width * scaleFactor;
+                resizeCanvas.height = originalImage.height * scaleFactor;
+                ctx.drawImage(originalImage, 0, 0, resizeCanvas.width, resizeCanvas.height);
+            });
+
+            // Handle save button click
+            saveImageButton.addEventListener('click', function() {
+                const base64Image = resizeCanvas.toDataURL('image/png');
+                localStorage.setItem('profileImage', base64Image);
+                profileImage.src = base64Image;
+                canvasContainer.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0 15rem;
+  background-color: #F1F8E8;
+}
+
+.spacer {
+  aspect-ratio: 1200/600;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(assets/bg.png);
+  position: absolute;
+  left: 0;
+  z-index: -3;
+  background-color: transparent;
+}
+
+header {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+  width: 100%;
+  color: #55AD9B;
+}
+header .header-text {
+  width: 70%;
+}
+header .header-text h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+header .header-text span {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+main {
+  margin-top: 4rem;
+  margin-bottom: 10rem;
+}
+main .accounts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+main .accounts-container .account {
+  height: 190px;
+  width: 170px;
+  border: 1px solid #55AD9B;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0 1rem;
+  position: relative;
+  color: #55AD9B;
+  background-color: #D8EFD3;
+  transition: all 0.3s ease;
+}
+main .accounts-container .account .edit-icon {
+  border-radius: 50%;
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: 3px;
+  right: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  cursor: pointer;
+}
+main .accounts-container .account .edit-icon box-icon {
+  height: 1rem;
+  border-radius: 50%;
+  background: none;
+  color: black;
+}
+main .accounts-container .account .edit-icon box-icon:hover {
+  background-color: #55AD9B;
+}
+main .accounts-container .account .edit-icon:hover {
+  background-color: #55AD9B;
+}
+main .accounts-container .account .edit-options {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border-radius: 10px;
+  width: 130px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px 0;
+  background-color: #F1F8E8;
+  color: #95D2B3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 14px;
+  z-index: 1;
+  cursor: pointer;
+  display: none;
+}
+main .accounts-container .account .edit-options .edit, main .accounts-container .account .edit-options .delete {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px;
+}
+main .accounts-container .account .edit-options .edit box-icon, main .accounts-container .account .edit-options .delete box-icon {
+  height: 1.2rem;
+  color: white;
+  margin-left: 10px;
+  background: none;
+}
+main .accounts-container .account .edit-options :hover {
+  background-color: #95D2B3;
+  color: #F1F8E8;
+}
+main .accounts-container .account .edit-options.active {
+  display: block;
+  z-index: 2;
+}
+main .accounts-container .account .account-header {
+  position: relative;
+  margin-top: 12px;
+  background-color: none;
+}
+main .accounts-container .account .account-header input {
+  text-align: center;
+  width: 100%;
+  border: none;
+  padding: 5px;
+  color: #55AD9B;
+  background-color: transparent;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+main .accounts-container .account .account-header input:focus {
+  color: #F1F8E8;
+}
+main .accounts-container .account .account-header input:focus ~ .underline,
+main .accounts-container .account .account-header input:hover ~ .underline {
+  color: white;
+  transform: scaleX(1);
+  height: 1px;
+}
+main .accounts-container .account .account-header .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+  background-color: #333;
+}
+main .accounts-container .account .account-img-text {
+  margin-top: 15px;
+  background: none;
+}
+main .accounts-container .account .account-img-text .img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+main .accounts-container .account .account-img-text .img-container img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: none;
+}
+main .accounts-container .account .account-img-text .name-container {
+  margin-top: 20px;
+  text-align: center;
+}
+main .accounts-container :hover {
+  background-color: #55AD9B;
+  color: #F1F8E8;
+}
+main .accounts-container .add-profile {
+  height: 190px;
+  width: 170px;
+  border: 2px dashed #55AD9B;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0 1rem;
+  position: relative;
+  margin-bottom: 110px;
+  color: #55AD9B;
+  background-color: #D8EFD3;
+  transition: all 0.3s ease;
+}
+main .accounts-container .add-profile .account-header {
+  text-align: center;
+  font-weight: 600;
+  background: none;
+  margin-top: 1rem;
+}
+main .accounts-container .add-profile .account-img-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  margin-top: 1rem;
+}
+main .accounts-container .add-profile .account-img-text .img-container {
+  background: none;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #F1F8E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .accounts-container .add-profile .account-img-text .img-container img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: none;
+  background-color: none;
+}
+main .accounts-container .add-profile:hover {
+  background-color: #55AD9B;
+  color: #F1F8E8;
+}
+
+.bottom-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  padding: 40px;
+  position: fixed;
+  z-index: 2;
+  background-color: #F1F8E8;
+  bottom: 0;
+  left: 0;
+  color: #55AD9B;
+}
+.bottom-options .guest-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #55AD9B;
+  height: 40px;
+  border-radius: 60px;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+.bottom-options .guest-container .guest-icon {
+  display: flex;
+  align-self: center;
+}
+.bottom-options .guest-container .guest-icon img {
+  height: 25px;
+  border-radius: 50%;
+}
+.bottom-options .guest-container span {
+  font-weight: 600;
+}
+.bottom-options .guest-container:hover {
+  background-color: #95D2B3;
+}
+.bottom-options .startup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.bottom-options .startup input[type=checkbox] {
+  padding: 10px;
+  width: 15px;
+  height: 15px;
+}
+
+.add-new-account {
+  height: 500px;
+  width: 400px;
+  position: absolute;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background-color: #F1F8E8;
+  z-index: 3;
+  transition: all 0.4s ease;
+  border-radius: 20px;
+}
+.add-new-account .add-acc-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #55AD9B;
+}
+.add-new-account .input-field {
+  margin-top: 1.5rem;
+  position: relative;
+}
+.add-new-account .input-field input {
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 1rem;
+  border: 2px solid black;
+  outline: none;
+  border-radius: 5px;
+  background: none;
+}
+.add-new-account .input-field label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  pointer-events: none;
+  background-color: #F1F8E8;
+}
+.add-new-account .input-field input:focus {
+  border: 2px solid green;
+}
+.add-new-account .input-field input:not(:-moz-placeholder-shown) ~ label {
+  top: 0;
+  font-size: 12px;
+  padding: 0 10px;
+}
+.add-new-account .input-field input:focus ~ label,
+.add-new-account .input-field input:not(:placeholder-shown) ~ label {
+  top: 0;
+  font-size: 12px;
+  padding: 0 10px;
+}
+.add-new-account .input-field input.valid {
+  border: 2px solid green;
+}
+.add-new-account .input-field input.invalid {
+  border: 2px solid red;
+}
+.add-new-account .input-field .add-new-account .addBtn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+}
+.add-new-account .input-field .error {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  bottom: -15px;
+  left: 5px;
+  display: none;
+}
+.add-new-account .input-field .error-message {
+  color: red;
+  font-size: 14px;
+  display: none;
+}
+.add-new-account .addBtn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  background-color: #95D2B3;
+  color: #F1F8E8;
+  border: none;
+}
+.add-new-account .addBtn:hover {
+  background-color: #55AD9B;
+}
+
+.add-new-account.active {
+  display: flex;
+}
+
+.dim-effect {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+}
+
+.dim-effect.active {
+  display: block;
+}/*# sourceMappingURL=style.css.map */

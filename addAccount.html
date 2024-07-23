@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .add-new-account {
+            height: 500px;
+            width: 400px;
+            border: 1px solid black;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            z-index: 3;
+        }
+        .add-new-account .add-acc-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .add-new-account .input-field {
+            margin-top: 1.5rem;
+            position: relative;
+        }
+        .add-new-account .input-field input {
+            width: 90%;
+            height: 40px;
+            padding: 0 15px;
+            font-size: 1rem;
+            border: 2px solid black;
+            outline: none;
+            border-radius: 5px;
+        }
+        .add-new-account .input-field label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            transition: 0.3s;
+            pointer-events: none;
+            background-color: white;
+        }
+        .add-new-account .input-field input:focus {
+            border: 2px solid green; /* Default focus border color */
+        }
+        .add-new-account .input-field input:focus ~ label,
+        .add-new-account .input-field input:not(:placeholder-shown) ~ label {
+            top: 0;
+            font-size: 12px;
+            padding: 0 10px;
+        }
+        .add-new-account .input-field input.valid {
+            border: 2px solid green;
+        }
+        .add-new-account .input-field input.invalid {
+            border: 2px solid red;
+        }
+        .add-new-account .addBtn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            position: absolute;
+            bottom: -15px;
+            left: 5px;
+            display: none;
+        }
+        .add-new-account.active {
+            display: flex;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="add-new-account">
+        <form action="" id="accountForm">
+            <div class="add-acc-header">
+                <h1>Add New Account</h1>
+                <p>Welcome to Who!</p>
+            </div>
+            <small class="error-message" id="MessError">Please fill in all fields</small>
+            <div class="input-field">
+                <input type="text" class="inputFname" id="fname" placeholder=" ">
+                <label for="">Enter first name</label>
+                <div class="error"></div>
+            </div>
+            <div class="input-field">
+                <input type="text" class="inputLname" id="lname" placeholder=" ">
+                <label for="">Enter last name</label>
+                <div class="error"></div>
+            </div>
+            <div class="input-field">
+                <input type="text" class="inputRole" id="role" placeholder=" ">
+                <label for="">Enter role</label>
+                <div class="error"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" class="inputPassword" id="password" placeholder=" ">
+                <label for="">Enter password</label>
+                <div class="error"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" class="inputConfirmPassword" id="password2" placeholder=" ">
+                <label for="">Confirm password</label>
+                <div class="error"></div>
+            </div>
+            <input type="submit" class="addBtn" id="addBtn" value="Add Account">
+        </form>
+    </div>
+    <script src="scripts/validation.js"></script>
+</body>
+</html>

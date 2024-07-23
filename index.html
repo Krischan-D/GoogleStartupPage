@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Clone Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  
+</head>
+<body>
+    <div class="spacer"></div>
+    <header>
+        <div class="logo-container">
+            <div class="idk"></div>
+        </div>
+        <div class="header-text">
+            <h1>Who is using <span>Who?</span> </h1>
+            <p>With Who profiles you can separate all your Who stuff. Create profiles for friends and family,
+                 or split between work and fun.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="accounts-container">
+            
+            <!-- <div class="account">
+                <div class="edit-icon">
+                    <box-icon name='dots-vertical-rounded' color='#000000' ></box-icon>
+                </div>
+                <div class="edit-options ">
+                    <div class="edit"><box-icon name='edit-alt' type='solid' color='#b1b1b1' ></box-icon>Edit</div>
+                    <div class="delete"><box-icon name='trash-alt' type='solid' color='#b1b1b1' ></box-icon>Delete</div>
+                </div>
+                <div class="account-header">
+                    <input type="text" name="" class="name">
+                    <div class="underline"></div>
+                </div>
+                <div class="account-img-text">
+                    <div class="img-container">
+                        <img src="assets/profile.png" alt="">
+                    </div>
+                    <div class="name-container">
+                        <p>Christian Diang</p>
+                    </div>
+                </div>
+            </div> -->
+            
+
+            <!-- <div class="add-profile" id="add-profile">
+            
+                <div class="account-header">
+                    <span>Add</span>
+                </div>
+                <div class="account-img-text">
+                    <div class="img-container">
+                        <img src="assets/plus-regular-60.png" alt="">
+                        
+                    </div>
+
+                </div>
+            </div> -->
+
+        </div>
+    </main>
+
+    <div class="bottom-options">
+        <div class="guest-container">
+            <div class="guest-icon">
+                <img src="assets/profile.png" alt="">
+            </div>
+            <span>Guest mode</span>
+        </div>
+
+        <div class="startup">
+            <input type="checkbox">
+            <label for="">Show on startup</label>
+        </div>
+    </div>
+
+    <div class="dim-effect"></div>
+
+    <div class="add-new-account">
+        <form action="" id="accountForm">
+            <div class="add-acc-header">
+                <h1>Add New Account</h1>
+                <p>Welcome to Who!</p>
+            </div>
+            <!-- <small class="error-message" id="MessError">Please fill in all fields</small> -->
+            <div class="input-field">
+                <input type="text" class="inputFname" id="fname" placeholder=" ">
+                <label for="">Enter first name</label>
+                <div class="error"></div>
+            </div>
+            <div class="input-field">
+                <input type="text" class="inputLname" id="lname" placeholder=" ">
+                <label for="">Enter last name</label>
+                <div class="error"></div>
+            </div>
+            <div class="input-field">
+                <input type="text" class="inputRole" id="role" placeholder=" ">
+                <label for="">Enter role</label>
+                <div class="error"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" class="inputPassword" id="password" placeholder=" ">
+                <label for="">Enter password</label>
+                <div class="error"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" class="inputConfirmPassword" id="password2" placeholder=" ">
+                <label for="">Confirm password</label>
+                <div class="error"></div>
+            </div>
+            <input type="submit" class="addBtn" id="addBtn" value="Add Account">
+        </form>
+    </div>
+    
+    <script type="module" src="scripts/scripts.js"></script>
+    <script type="module" src="scripts/validation.js"> </script>
+</body>
+</html>
