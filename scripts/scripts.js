@@ -19,7 +19,7 @@ function renderHtml() {
         renderAccount += `
             <div class="account" data-index="${index}">
                 <div class="edit-icon">
-                    <box-icon name='dots-vertical-rounded' color='#000000'></box-icon>
+                    <box-icon name='dots-vertical-rounded' color='#E0E0E0'></box-icon>
                 </div>
                 <div class="edit-options">
                     <div class="edit"><box-icon name='edit-alt' type='solid' color='#b1b1b1'></box-icon>Edit</div>
@@ -53,7 +53,7 @@ function renderHtml() {
             </div>
         </div>
     </div>`;
-    accountsContainer.insertAdjacentHTML('beforeend', addProfileHtml);
+    accountsContainer.insertAdjacentHTML('beforeend', addProfileHtml); // insert the add profile container 
 
     const addNewAccount = document.getElementById("add-profile");
     const addNewInput = document.querySelector('.add-new-account');
@@ -286,3 +286,24 @@ const validateInput = () => {
 
     return isValid;
 }
+
+const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+
+togglePasswordIcons.forEach(icon => {
+    icon.addEventListener('click', () => {
+        const inputField = icon.previousElementSibling.previousElementSibling.previousElementSibling;
+
+        // Toggle input type between 'password' and 'text'
+        if (inputField.type === 'password') {
+            inputField.type = 'text';
+            icon.classList.replace('bx-low-vision', 'bx-show');
+            icon.style.color = '#ffffff';
+        } else {
+            inputField.type = 'password';
+            icon.classList.replace('bx-show', 'bx-low-vision');
+            icon.style.color = '#E0E0E0';
+        }
+    });
+});
+
+ 
